@@ -1,6 +1,6 @@
 #!/usr/bin/env pybricks-micropython
 
-from runs import *
+from runs import run1
 
 run1.start()
 

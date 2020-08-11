@@ -1,4 +1,4 @@
-from utils.robot import Robot
+from robot import Robot
 from pybricks.tools import wait
 
 def start():
