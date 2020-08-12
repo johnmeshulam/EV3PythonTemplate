@@ -1,7 +1,8 @@
 from robot import Robot
 from pybricks.tools import wait
+from util import light
+
+name = "line align"
 
 def start():
-  Robot.chassis.drive(70, 0)
-  wait(2000)
-  Robot.brake()
+  light.align(100, 60)
