@@ -2,43 +2,25 @@
 from pybricks.parameters import Button
 from util import buttons
 from robot import Robot
-from runs import drive_run, align_run, line_follow_run, light_reset_run
+from runs import drive_run, align_run, line_follow_run, light_reset_run, arm_run
+
+button_codes = [Button.UP, Button.RIGHT, Button.DOWN, Button.LEFT, Button.CENTER]
+button_symbols = [" ^ ", " > ", " v ", " < ", "[] "]
+runs = [drive_run, arm_run, align_run, line_follow_run, light_reset_run]
 
 def display_menu():
   Robot.brick.screen.clear()
 
-  Robot.brick.screen.print(" ^ " + drive_run.name)
-  Robot.brick.screen.print(" > " + align_run.name)
-  Robot.brick.screen.print(" v " + line_follow_run.name)
-  Robot.brick.screen.print(" < " + light_reset_run.name)
-  #Robot.brick.screen.print("[] " + _run.name)
+  for i in range(len(runs)):
+    Robot.brick.screen.print(button_symbols[i] + runs[i].name)
 
-#TODO: for higher level - think about using a run class
-#       or adding a method that takes a start method and clears screen before starting it
+
 while True:
   display_menu()
 
   btn = buttons.wait_for_any_press()
+  btn_index = button_codes.index(btn)
 
   Robot.brick.screen.clear()
 
-  if(btn==Button.UP):
-    drive_run.start()
-    pass
-  elif(btn==Button.RIGHT):
-    align_run.start()
-    pass
-  elif(btn==Button.DOWN):
-    line_follow_run.start()
-    pass
-  elif(btn==Button.LEFT):
-    light_reset_run.start()
-    pass
-  elif(btn==Button.CENTER):
-    #_run.start()
-    pass
-
-    
-
-
-
+  runs[btn_index].start()
