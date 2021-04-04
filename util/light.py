@@ -31,7 +31,6 @@ def _read_sensors():
     left_value = Robot.color_left.reflection()
     return (left_value, right_value)
 
-#TODO: for higher level - create 'side; enum and pass is instead of sensor, add 'line side' parameter
 def follow_distance(distance, sensor, speed, kp):
   Robot.chassis.reset()
   target = (constants["black"] + constants["white"]) / 2

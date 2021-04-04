@@ -2,11 +2,11 @@
 from pybricks.parameters import Button
 from util import buttons
 from robot import Robot
-from runs import drive_run, align_run, line_follow_run, light_reset_run, arm_run
+from runs import run1
 
 button_codes = [Button.UP, Button.RIGHT, Button.DOWN, Button.LEFT, Button.CENTER]
 button_symbols = [" ^ ", " > ", " v ", " < ", "[] "]
-runs = [drive_run, arm_run, align_run, line_follow_run, light_reset_run]
+runs = [run1]
 
 def display_menu():
   Robot.brick.screen.clear()
