@@ -2,11 +2,12 @@
 from pybricks.parameters import Button
 from util import buttons
 from robot import Robot
-from runs import align_run, arm_run, drive_run, light_reset_run, line_follow_run
+from runs import motor_control
+import multiprocessing as mp
 
 button_codes = [Button.UP, Button.RIGHT, Button.DOWN, Button.LEFT, Button.CENTER]
 button_symbols = [" ^ ", " > ", " v ", " < ", "[] "]
-runs = [align_run, arm_run, drive_run, light_reset_run, line_follow_run]
+runs = [motor_control]
 
 def display_menu():
   Robot.brick.screen.clear()
@@ -22,5 +23,11 @@ while True:
   btn_index = button_codes.index(btn)
 
   Robot.brick.screen.clear()
-
   runs[btn_index].start()
+
+  #p = mp.Process(target=runs[btn_index].start)
+  #p.daemon = True
+  #p.start()
+
+  #buttons.wait_for_press((Button.CENTER, Button.DOWN))
+  #p.terminate()

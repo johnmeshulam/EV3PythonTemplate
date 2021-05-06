@@ -5,10 +5,7 @@ from pybricks.tools import wait
 from pybricks.parameters import Port, Direction
 from pybricks.robotics import DriveBase
 
-constants = {
-  "black": 5,
-  "white": 60
-}
+constants = {}
 
 class Robot():
 
@@ -16,15 +13,14 @@ class Robot():
 
   wheel_left = Motor(Port.B)
   wheel_right = Motor(Port.C)
-  chassis = DriveBase(wheel_left, wheel_right,
-                      wheel_diameter=54.4, axle_track=108)
+  chassis = DriveBase(wheel_left, wheel_right, 54.4, 108)
 
   arm_left = Motor(Port.A)
   arm_right = Motor(Port.D)
 
   #gyro = GyroSensor(Port.S1, Direction.COUNTERCLOCKWISE)
-  color_left = ColorSensor(Port.S2)
-  color_right = ColorSensor(Port.S3)
+  #color_left = ColorSensor(Port.S2)
+  #color_right = ColorSensor(Port.S3)
 
   @classmethod
   def brake(cls):
